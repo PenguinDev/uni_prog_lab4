@@ -1,9 +1,4 @@
 ﻿  helper.cpp
-C:\Users\penju\Desktop\l4\helper.cpp(32,26): warning C4018: '<': signed/unsigned mismatch
-C:\Users\penju\Desktop\l4\helper.cpp(46,23): warning C4018: '<': signed/unsigned mismatch
-  main.cpp
-  substances.cpp
-C:\Users\penju\Desktop\l4\substances.cpp(30,19): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
-  LINK : C:\Users\penju\Desktop\l4\Debug\l4.exe not found or not built by the last incremental link; performing full link
-  l4.vcxproj -> C:\Users\penju\Desktop\l4\Debug\l4.exe
+C:\Users\penju\Desktop\l5\helper.cpp(35,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\penju\Desktop\l5\helper.cpp(97,23): warning C4018: '<': signed/unsigned mismatch
+  l4.vcxproj -> C:\Users\penju\Desktop\l5\Debug\l4.exe

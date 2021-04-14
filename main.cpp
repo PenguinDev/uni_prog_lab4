@@ -13,7 +13,7 @@ int main()
     while (isProgrammRunning)
     {
         isUsersValues 
-            = askFor("Use values from what?[custom/db]: ", 
+            = askFor("Use values from what?[custom/db]<string>: ", 
                 { "custom", "db" }) == "custom" 
             ? true 
             : false;
@@ -35,7 +35,7 @@ int main()
         userSearchForSubstances(&substances);
 
         isProgrammRunning 
-            = askFor("Another try?[y/n]: ", { "y", "n" }) == "y" 
+            = askFor("Another try?[y/n]<string>: ", { "y", "n" }) == "y" 
             ? true 
             : false;
         cout << "\n";
@@ -47,22 +47,15 @@ int main()
 Substance inputSubstance()
 {
     Substance substance = Substance();
-    cout << "Input name: ";
+
+    cout << "Input name<string>: ";
     cin >> substance.name;
 
-    cout << "Input mass: ";
-    cin >> substance.mass;
-    
-    while (!cin.good())
-    {
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cout << "Non number value. Try again: ";
-        cin >> substance.mass;
-    }
+    cout << "Input mass<double>: ";
+    substance.mass = inputDoubleMass();
 
     string answer 
-        = askFor("Input conductivity(conductor, semiconductor, insulator)[c/s/i]: ", 
+        = askFor("Input conductivity(conductor, semiconductor, insulator)[c/s/i]<string>: ", 
             { "c", "s", "i" });
 
     if (answer == "c")
@@ -93,14 +86,14 @@ void userSearchForSubstances(vector<Substance>* substances)
     while (isSearching) 
     {
        searchType 
-           = askFor("U can search by name/mass/conductivity[n/m/c]: ", 
+           = askFor("U can search by name/mass/conductivity[n/m/c]<string>: ", 
                { "n", "m", "c" });
         
         string substanceFilter;
         if (searchType == "c")
         {
             string conductType 
-                = askFor("Write search filter[c/s/i]: ", { "c", "s", "i" });
+                = askFor("Write search filter[c/s/i]<string>: ", { "c", "s", "i" });
             if (conductType == "c")
                 substanceFilter = "Conductor";
             if (conductType == "s")
@@ -110,23 +103,14 @@ void userSearchForSubstances(vector<Substance>* substances)
         }
         else
         {
-            cout << "Write search filter: ";
-
             if (searchType == "m")
             {
-                double substanceFilterDouble;
-                cin >> substanceFilterDouble;
-                while (!cin.good())
-                {
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    cout << "Non number value. Try again: ";
-                    cin >> substanceFilterDouble;
-                }
-                substanceFilter = to_string(substanceFilterDouble);
+                cout << "Write search filter<double>: ";
+                substanceFilter = to_string(inputDoubleMass());                
             }
             else
             {
+                cout << "Write search filter<string>: ";
                 cin >> substanceFilter;
             }
         }
@@ -140,7 +124,7 @@ void userSearchForSubstances(vector<Substance>* substances)
             createChart(castToStringVector(substancesFinded));
 
         isSearching 
-            = askFor("Want search again?[y/n]: ", { "y", "n" }) == "y" 
+            = askFor("Want search again?[y/n]<string>: ", { "y", "n" }) == "y" 
             ? true 
             : false;
     }
@@ -149,7 +133,7 @@ void userSearchForSubstances(vector<Substance>* substances)
 void askToShowAllSubstances(vector<Substance>* substances)
 {
     bool isShowTable 
-        = askFor("Do u want to see all substances?[y/n]: ", { "y", "n" }) == "y"
+        = askFor("Do u want to see all substances?[y/n]<string>: ", { "y", "n" }) == "y"
         ? true 
         : false;
 

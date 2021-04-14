@@ -1,2 +1,4 @@
 C:\Users\penju\Desktop\l4\Debug\l4.exe
 C:\Users\penju\Desktop\l4\Debug\l4.pdb
+C:\Users\penju\Desktop\l5\Debug\l4.exe
+C:\Users\penju\Desktop\l5\Debug\l4.pdb
