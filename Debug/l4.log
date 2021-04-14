@@ -1,4 +1,0 @@
-﻿  helper.cpp
-C:\Users\penju\Desktop\l5\helper.cpp(35,31): warning C4018: '<': signed/unsigned mismatch
-C:\Users\penju\Desktop\l5\helper.cpp(97,23): warning C4018: '<': signed/unsigned mismatch
-  l4.vcxproj -> C:\Users\penju\Desktop\l5\Debug\l4.exe
